@@ -9,6 +9,10 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/qualquerCoisa', (req, res) => {
+  res.send("SAAR LOUCO")
+})
+
 // Rota de exemplo
 app.post('/calcular-gasto', (req, res) => {
   // Extrair os dados enviados no corpo da requisição
