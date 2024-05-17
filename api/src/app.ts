@@ -10,8 +10,15 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Rota de exemplo
-app.get('/', (req: Request, res: Response) => {
-  res.send('Bem-vindo à minha API!');
+app.post('/calcular-gasto', (req, res) => {
+  // Extrair os dados enviados no corpo da requisição
+  const { gastoDiario, gastoSemanal } = req.body;
+
+  // Fazer o cálculo
+  const gastoTotal = parseFloat(gastoDiario) * 30 + parseFloat(gastoSemanal) * 4;
+
+  // Retornar o resultado
+  res.json({ resultado: gastoTotal });
 });
 
 // Iniciar o servidor
